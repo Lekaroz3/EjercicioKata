@@ -28,7 +28,8 @@ var ciudades = [
     }
 ];
 function calculo(listaPescados) {
-    var pesoTotal = listaPescados.reduce(function (a, b) { return a.cantidad + b.cantidad; }, 0);
+    var pesoTotal = 0;
+    listaPescados.forEach(function (a) { pesoTotal += a.cantidad; });
     if (pesoTotal < 0 || pesoTotal > 200) {
         console.log("Error, la furgoneta solamente puede llevar 200kg y la suma del peso tiene que ser positivo!");
         return "Error, la furgoneta solamente puede llevar 200kg y la suma del peso tiene que ser positivo!";

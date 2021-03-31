@@ -36,7 +36,9 @@ let ciudades: {ciudad: string, precios:{vieiras:number,pulpo:number, centollo:nu
 
 function calculo(listaPescados:any[]){
 
-    let pesoTotal: number = listaPescados.reduce((a,b)=> a.cantidad+b.cantidad,0);
+    let pesoTotal: number = 0;
+
+    listaPescados.forEach(function(a){pesoTotal += a.cantidad;});
 
     if(pesoTotal<0 || pesoTotal>200){
         console.log("Error, la furgoneta solamente puede llevar 200kg y la suma del peso tiene que ser positivo!");
